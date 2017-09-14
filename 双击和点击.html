@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击和双击</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*#btn1{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}*/
+	</style>
+</head>
+<body>
+	<button id="btn1">单击或双击</button>
+	<!-- <div id="btn1"></div> -->
+</body>
+<script type="text/javascript">
+window.onload = function(){
+	var btn1 = document.getElementById("btn1");
+	var timer;
+	
+	btn1.ondblclick = function(){
+		clearTimeout(timer);
+		console.log("双击");
+	}
+	btn1.onclick = function(){
+		clearTimeout(timer);
+		timer = setTimeout(function(){
+			console.log("单击");
+		},200);
+	}
+}
+	
+</script>
+</html>

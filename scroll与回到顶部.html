@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll与回到顶部</title>
+	<style type="text/css">
+		#box{
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p>韩国烧烤了
+			关键是打开关键是打开江山控股。韩国烧烤了
+			江山控股。关键是打开江山控股。关键是打开
+			韩国烧烤了关键是打开江山控股。韩国烧烤了
+			关键是打开江山控股。关键是打开江山控股。
+			江山控股韩国烧烤了关键是打开韩国烧烤了
+			江山控股。关键是打开江山控股。
+			关键是打开关键是打开江山控股。韩国烧烤了
+			江山控股。关键是打开江山控股。关键是打开
+			韩国烧烤了关键是打开江山控股。韩国烧烤了
+			关键是打开江山控股。关键是打开江山控股。
+			江山控股韩国烧烤了关键是打开韩国烧烤了
+			江山控股。关键是打开江山控股
+		</p>
+	</div>
+	<button id="btn"> 回顶部</button>
+</body>
+<script type="text/javascript">
+	window.onscroll = function(){
+		var top = document.body.scrollTop || document.documentElement.scrollTop;
+		console.log(top);
+	}
+	window.onload = function(){
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	}
+	
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>p居中于div中</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 400px;
+			height: 400px;
+			background: red;
+			position: relative;
+		}
+		#box #text{
+			width: 200px;
+			height: 200px;
+			background: yellow;
+			display: table;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#box #text p{
+			display: table-cell;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="text">
+			<p id="p">换个时间离开
+				记得是看了是多个，计数的开了个。
+				结果是快到了，计数的宽和。
+			</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var box = document.getElementById("box");
+		var oText = document.getElementById("text");
+		var oP = document.getElementById('p');
+		var h = getStyle(box,"width").split("px")[0];
+		var w = getStyle(box,"height").split("px")[0];
+		oText.style.left = (h - 200)/2 + "px";
+		oText.style.top = (w - 200)/2 + "px";
+
+	}
+</script>
+</html>

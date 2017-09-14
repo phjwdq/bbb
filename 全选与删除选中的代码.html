@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选与删除选中的代码</title>
+</head>
+<body>
+	<input type="checkbox" id="ipt1">
+	<label for="ipt1">第一个</label><br>
+
+	<input type="checkbox" id="ipt2">
+	<label for="ipt2">第二个</label><br>
+
+	<input type="checkbox" id="ipt3">
+	<label for="ipt3">第三个</label><br>
+
+	<input type="checkbox" id="ipt4">
+	<label for="ipt4">第四个</label><br>
+	<button id="selBtn">全选</button>
+	<button id="delBtn">删除所选</button>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var ipts = document.getElementsByTagName("input");
+		var selBtn = document.getElementById("selBtn");
+		var delBtn = document.getElementById("delBtn");
+		selBtn.onclick = function(){
+			if(selBtn.innerHTML == "全选"){
+				for (var i = 0; i < ipts.length; i++) {
+					if(!ipts[i].checked){
+						ipts[i].checked = true;
+						selBtn.innerHTML = "取消全选";
+					}
+				}
+			}else{
+				for (var i = 0; i < ipts.length; i++) {
+					if(ipts[i].checked){
+						ipts[i].checked = false;
+						selBtn.innerHTML = "全选";
+					}
+				}
+			}
+			
+		}
+		delBtn.onclick = function(){
+			var arr = [];
+			for (var i = 0; i < ipts.length; i++) {
+				if(ipts[i].checked){
+					arr.push(ipts[i]);
+				}
+			}
+			for (var i = 0; i < arr.length; i++) {
+				//一定要记得怎么写，不能少了body!
+				//注意:removeChild(待删除的节点);
+				//删除空白文本
+				document.body.removeChild(arr[i].nextSibling);
+				//删除label
+				document.body.removeChild(arr[i].nextSibling);
+				//删除空白文本
+				document.body.removeChild(arr[i].nextSibling);
+				//删除input
+				document.body.removeChild(arr[i]);
+			}
+		}
+	}
+</script>
+</html>

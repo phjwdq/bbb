@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽并且回放</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #000;
+			position: relative;
+		}
+		#box{
+			width: 208px;
+			height: 208px;
+			/*一定要是背景图！！*/
+			background: url(img/girl.gif) no-repeat center center;
+			position: absolute;
+		}
+		/*#box img{
+			width: 208px;
+			height: 208px;
+		}*/
+	</style>
+</head>
+<body>
+	<button id="btn">点击回放</button>
+	<div id="box">
+		<!-- <img src="img/girl.gif" alt="图片"> -->
+	</div>
+</body>
+<script type="text/javascript">
+	var box = document.getElementById("box");
+	var btn = document.getElementById("btn");
+	var arr = [];
+	box.onmousedown = function(event){
+		var evt = event || window.event;
+		var offX = evt.offsetX;
+		var offY = evt.offsetY;
+		// 使数组清空！！！使数组每次都记录本次的移动点
+		arr.length = 0;
+		// 在div中按下鼠标之后，拖拽div，也就是在文档中移动鼠标
+		document.onmousemove = function(event){
+			var evt = event || window.event;
+			//使鼠标始终处于第一次在div中点击的位置
+			box.style.left = (evt.pageX - offX) + "px";
+			box.style.top = (evt.pageY - offY) + "px";
+			// 创建对象，存放坐标点
+			var point = {
+				x:(evt.pageX - offX),
+				y:(evt.pageY - offY)
+			}
+			//每一次移动得到的坐标，都存放于数组中共
+			arr.push(point);
+		}
+	}
+	// 在文本中共抬起鼠标时候，使鼠标在文档的移动事件清空
+	document.onmouseup = function(){
+		document.onmousemove = null;
+	}
+	// 
+	btn.onclick = function(){
+		// 倒着走，原路返回。使数组逆置
+		arr.reverse();
+		var i = 0;//数组下标
+		// 要使用定时器！！，不然用for的话，看不效果
+		var timer = setInterval(fun,10);
+		function fun(){
+			box.style.left = arr[i].x + "px";
+			box.style.top = arr[i].y + "px";
+			i++;
+			if(i>=arr.length){
+				// 记得清空定时器！
+				clearInterval(timer);
+			}
+		}
+	}
+
+</script>
+</html>

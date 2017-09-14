@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条</title>
+	<style type="text/css">
+		*{
+			/*注意：这个全局样式一定要写*/
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 500px;
+			height: 40px;
+			border: 1px solid red;
+			margin: 50px auto;
+			position: relative;
+		}
+		#box .strip{
+			width: 0px;
+			height: 40px;
+			background: blue;
+			position: absolute;
+		}
+		#box .strip p{
+			width: 500px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="strip">
+			<p class="num">0%</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var box = document.getElementById("box");
+		var strip = document.getElementsByClassName("strip")[0];
+		var num = document.getElementsByClassName("num")[0];
+		var numP = 0;
+		var w = 0;
+		var timer = setInterval(fun,100);
+
+		function fun(){
+			//要计算好，0%到100% 100个数。
+			//将进度条strip的宽份成100份，依次向上累加
+			numP ++;
+			w +=5;
+			strip.style.width = w + "px";
+			num.innerHTML = numP + "%";
+			if(numP == 100){
+				clearInterval(timer);
+			}
+		}
+	}
+</script>
+</html>

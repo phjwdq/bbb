@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取属性节点的方法</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<input type="text" placeholder="请输入" my="attr">
+</body>
+<script type="text/javascript">
+	// console.log(document.title);
+	// document.title = "几个可莱丝";
+	console.log(document.URL);
+	var ipt = document.getElementsByTagName("input")[0];
+	console.log(ipt);//已经改变的<input type="text" placeholder="placeholder" my="My">
+	console.log(ipt.type);//text
+	console.log(ipt.placeholder);//请输入
+	console.log(ipt.my);//undefined不起作用
+	console.log(ipt.getAttribute("my"));//attr
+
+	ipt.placeholder="placeholder";
+	ipt.my = "my";//不起作用XXXX错误的
+	ipt.setAttribute("my","My");
+	console.log(ipt);//已经改变的<input type="text" placeholder="placeholder" my="My">
+	ipt.removeAttribute("my");
+	console.log(ipt.getAttribute("my"));//null
+
+
+</script>
+</html>

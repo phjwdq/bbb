@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态的时钟练习</title>
+</head>
+<body>
+	<span id="year"></span>年<span id="month"></span>月<span id="date"></span>日 <span id='week'></span>
+	<span id="hour"></span>时<span id='min'></span>分<span id="sec"></span>秒
+</body>
+<script type="text/javascript" src="js/date.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+	var timer = null;
+	var d = new Date();
+	timer = setInterval(fun,1000);
+		function fun(){
+			d.setSeconds(d.getSeconds()+1);
+			dateFun(d);
+		}
+
+
+
+
+	function dateFun(d){
+		var yearObj = $$("year");
+		var monthObj  =$$("month");
+		var dateObj = $$("date");
+		var weekObj = $$("week");
+		var hourObj = $$("hour");
+		var minObj = $$("min");
+		var secObj = $$("sec");
+
+		var year = d.getFullYear();
+		var month  =toTwoNum(d.getMonth()+1);
+		var date = toTwoNum(d.getDate());
+		var weekday = week(d.getDay());
+		var hour = toTwoNum(d.getHours());
+		var min = toTwoNum(d.getMinutes());
+		var sec = toTwoNum(d.getSeconds());
+
+		yearObj.innerHTML = year;
+		monthObj.innerHTML = month;
+		dateObj.innerHTML = date;
+		weekObj.innerHTML = weekday;
+		hourObj.innerHTML = hour;
+		minObj.innerHTML = min;
+		secObj.innerHTML = sec;
+	}
+	
+
+	
+
+
+	
+
+
+	
+</script>
+</html>

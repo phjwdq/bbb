@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据函数</title>
+	<style type="text/css">
+		.box{
+			width: 300px;
+			height: 300px;
+			border: 1px solid green;
+			background-color: yellow !important;
+		}
+		.box p{
+			width: 200px;
+			height: 200px;
+			border: 1px solid green;
+			color: red !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p class="p1">宏观经济</p>
+	</div>
+</body>
+<script type="text/javascript">
+	var box = document.getElementsByClassName("box")[0];
+	var objP = document.getElementsByClassName("p1")[0];
+	// console.log(objP); 
+	objP.style.color = "#000";
+
+
+	// alert("数据\n函数");
+	// alert("数据\t函数");
+	// var str = prompt("请输入：","123");
+	// console.log(str);
+	// alert(hh);
+
+	// var str = "message";
+	// alert(typeof str);//string
+	// alert(typeof (str))//string
+	// alert(typeof "bbb");//string
+
+	// alert(typeof aaaa);//undefined
+	// alert(typeof (aaa));//undefined
+
+	// alert(typeof 900);//number
+	// alert(typeof (900));//number
+
+// // Boolean
+// 	alert(Number(true));//1
+// 	alert(Number(false));//0
+// //number	
+// 	alert(Number(3.1415926));//3.1415926
+// //null
+// 	alert(Number(null));//0
+// //undefined
+// 	alert(Number(undefined));//NaN (not a number)
+// //string
+// //1)
+// 	alert(Number("+123"));//123
+// 	alert(Number("-123"));//-123
+// 	alert(Number("00123"));//123
+// //2)
+// 	alert(Number(".9"));//0.9
+// 	alert(Number("00.890"));//0.89
+// // 3)
+// 	alert(Number("0xf"));//15
+// 	alert(Number("0xa0"));//160 (0*16^0+10*16^1=160)
+// // 4)
+// 	alert(Number(""));//0
+
+// // 5)
+// 	alert(Number("000xf"));//NaN
+// 	alert(Number("Hello!"));//NaN
+
+	// alert(Number(""));//0
+	// alert(Number("     "));//0
+	// alert(parseInt(""));//NaN
+	// alert(parseInt("    "));//NaN
+	// alert(parseFloat(""));//NaN
+	// alert(parseFloat("    "));//NaN
+	// 
+// parseInt()
+	// alert(parseInt("  123abc "));//123
+	// alert(parseInt("abc123"));//NaN
+	// alert(parseInt(" 123.abc"));//123
+	// alert(parseInt(" 0123.456"));//123
+	// 
+	// alert(parseInt("10 20    50"));			//返回 10
+	// alert(parseInt("19",10));		//返回 19 (10+9)
+	// alert(parseInt("11",2));		//返回 3 (2+1)
+	// alert(parseInt("17",8));		//返回 15 (8+7)
+	// alert(parseInt("1f",16));		//返回 31 (16+15)
+	// alert(parseInt("010"));		//未定：返回 10 或 8
+
+// parseFloat()
+	// alert(parseFloat("e"));//NaN
+	// alert(parseFloat("1e"));//1
+	// alert(parseFloat("1e2"));//100(e之后必须有数字,e才是科学计数)
+	// alert(parseFloat("  .223  "));//0.223
+	// 
+	// 字符串拼接
+	
+
+	// alert("num=" , num);//num=
+	// 
+	// var a = "12";
+	// var b = 10;
+	// alert(a+b);//1210
+	// alert(a-b);//2
+
+	// console.log(a+b);//1210
+	// console.log(a-b);//2
+	// 打印
+	// document.write("hello world");
+	// document.write("<p class='paragraph'>这是一段文本</p>");
+	// document.body.innerHTML += "数据函数";
+	// console
+	// var num = 10;
+	// var str = "是正整数"
+	// console.log("num=",num);//num=10
+	// console.log(num+str);//10是正整数
+
+	// console.log(num,str);
+	// console.log()
+	// boject
+	// var dog = {
+	// 	name: "yellow",//(此处是逗号！！)
+	// 	speak: function(){
+	// 		console.log("汪汪~~");
+	// 	}
+	// }
+	// //调用
+	// console.log(dog.name);
+	// dog.speak();
+
+	// var a = 10;
+	// var b = 0;
+	// var c = 20;
+	// alert(a&&b);//0
+	// alert(b&&a);//0
+	// alert(a||b);//10
+	// alert(b||a);//10
+
+	// alert(a&&c);//20=c
+	// alert(c&&a);//10=a
+
+	// alert(a||c);//10=a
+	// alert(c||a);//20=c
+	//数组
+	// var arr = [1,2,3,4,5,6,7,8,9];
+	// arr.reverse();
+	// // var ret = arr.reverse();
+	// console.log(arr);
+	// // console.log(ret);
+	
+	// var ret1 = arr.splice(0,0,3,3);
+	// console.log(ret1);
+	// console.log(arr);
+// 	function SelectSort(arr){
+// 		var temp = 0;
+// 		for (var i = 0; i < arr.length-1; i++) {
+// 			for(var j = i+1; j < arr.length; j++){
+// 				if(arr[i] > arr[j]){
+// 					temp = arr[i];
+// 					arr[i] = arr[j];
+// 					arr[j] = temp;
+// 				}
+// 			}
+// 		}
+// 		console.log(arr);
+// 	}
+
+// 	function BubbleSort(arr){
+// 		for (var i = 0; i < arr.length; i++) {
+// 			for(var j = 0; j < arr.length-1-i; j++){
+// 				if(arr[j] > arr[j+1]){//j控制相邻直接的比较
+// 					temp = arr[j];
+// 					arr[j] = arr[j+1];
+// 					arr[j+1] = temp;
+// 				}
+// 			}
+// 		}
+// 		console.log(arr);
+// 	}
+
+// 	var arr = [1,2,3,4,5,6,7,8,9];
+// 	arr.reverse();
+// 	console.log(arr);
+// 	// var arr1 = arr.sort(compear);
+// 	console.log(arr.sort(compear));
+// 	function compear(a,b){
+// 		return a>b;
+// 	}
+// console.log(arr);
+// BubbleSort(arr);
+// console.log(arr);
+// SelectSort(arr);
+
+// var obj = {
+// 	"name" : "Bob",
+// 	"age" : 22
+// }
+// var str1 = obj.toString();
+// console.log(str1.charAt(1));
+// var str2 = JSON.stringify(obj);
+// console.log(str2.charAt(1));
+
+// console.log(str1);
+// console.log(str2);
+
+// 字符串
+	var strs = "gjkk";
+	// var str1 = str.toUpperCase();
+	// console.log(str1);
+	// console.log(str); 
+	// var str1 = "abc";
+	// var str2 = "abc";
+	// var str3 = new String("abc");
+	// console.log(str1 == str2);
+	// console.log(str1 === str3);
+	// console.log(strs);
+	// var str = "abb,bb,bbdc,";
+	// var str1 = str.split();
+	// var str2 = str.split(",");
+	// var str3 = str.split("bb");
+	// var str4 = str.split("ff");
+	// var str5 = str.split("");
+	// console.log(str);//abb,bb,bbdc,原字符串不改变
+	// console.log(str1);//["abb,bb,bbdc,"] 不写参数，默认整个字符串是一个长度为1的字符串
+	// console.log(str2);//["abb","bb","bbdc",""]长度为4的数组，最后一个元素的空字符串
+	// console.log(str3);//["a",",",",","dc,"]长度为4的数组
+	// console.log(str4);//["abb,bb,bbdc,"] 
+	// console.log(str5);//["a","b","b",",","b","b",",","b","b","d","c",","]字符串中的每个字符是数组中的单个的元素。 此时字符串的长度和数组的长度相同
+
+// 截取
+	// var str = "abcdefghijklmn";
+	// var str1 = str.substr(8);//ijklmn
+	// var str2 = str.substring(8);//ijklmn
+	// var str3 = str.substr(2,5);//cdefg
+	// var str4 = str.substring(2,5);//cde
+	// console.log(str1);
+	// console.log(str2);
+	// console.log(str3);
+	// console.log(str4);
+	// 
+	// var str1 = "abcd";
+	// var str2 = "abcdef";
+	// console.log(str1.localeCompare(str2));
+	
+	// var val1 = 2.34;
+	// var val2 = 2.80;
+	// var y = 10;
+	// var x = 2;
+	// console.log(Math.round(val1));//2
+	// console.log(Math.round(val2));//3
+	// console.log(Math.floor(val1));//2
+	// console.log(Math.ceil(val1));//3
+	// console.log(Math.pow(10,2));//100
+	// console.log(Math.sqrt(x));//1.414
+
+
+
+
+	
+
+
+
+
+
+
+
+</script>
+</html>
